@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SORTE DO BEM - Gerenciador de Sorteios</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Custom glow effect for the new logo */
+      .shadow-glow-logo {
+        filter: drop-shadow(0 0 10px rgba(0, 84, 166, 0.4)) drop-shadow(0 0 3px rgba(242, 101, 68, 0.3));
+      }
+
+      /* Style for the date picker icon */
+      input[type="date"]::-webkit-calendar-picker-indicator {
+        cursor: pointer;
+        opacity: 0.8;
+        /* This filter converts the default black icon to the theme's primary blue color (#0054A6) */
+        filter: invert(24%) sepia(99%) saturate(2294%) hue-rotate(186deg) brightness(97%) contrast(101%);
+        transition: opacity 0.2s ease-in-out;
+      }
+
+      input[type="date"]::-webkit-calendar-picker-indicator:hover {
+        opacity: 1;
+      }
+
+      /* Winner Modal Animations */
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      @keyframes scaleUp {
+        from { transform: scale(0.8) translateY(20px); opacity: 0; }
+        to { transform: scale(1) translateY(0); opacity: 1; }
+      }
+      .modal-overlay {
+        animation: fadeIn 0.3s ease-out forwards;
+      }
+      .modal-content {
+        animation: scaleUp 0.4s ease-out forwards;
+      }
+
+      /* Confetti Animation */
+      @keyframes fall {
+        0% {
+          transform: translateY(-10vh) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh) rotate(720deg);
+          opacity: 0;
+        }
+      }
+      .confetti {
+        position: absolute;
+        pointer-events: none;
+      }
+
+      /* Button Pulse Animation */
+      @keyframes pulse-glow {
+        0%, 100% {
+            transform: scale(1);
+            box-shadow: 0 0 5px rgba(0, 84, 166, 0.2);
+        }
+        50% {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 84, 166, 0.5);
+        }
+      }
+      .btn-pulse-glow {
+        animation: pulse-glow 2s infinite ease-in-out;
+      }
+
+      /* Drawing Spinner Animation */
+      .drawing-spinner-overlay {
+        animation: fadeIn 0.3s ease-out forwards;
+      }
+      .drawing-spinner-content {
+        animation: scaleUp 0.4s ease-out forwards;
+      }
+      .spinner-numbers-reel {
+        /* Custom properties are set via inline style for dynamic values */
+        animation: spin-loop var(--loop-duration, 1s) linear infinite;
+      }
+      @keyframes spin-loop {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          /* Loop seamlessly by translating the height of the original ticket list */
+          transform: translateY(var(--loop-height));
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.5",
+    "@supabase/supabase-js": "https://esm.sh/@supabase/supabase-js@2.39.3",
+    "bcryptjs": "https://esm.sh/bcryptjs@2.4.3",
+    "react-qr-code": "https://aistudiocdn.com/react-qr-code@^2.0.18"
+  }
+}
+</script>
+</head>
+  <body class="bg-[#FDF3E6] text-[#002D5B] antialiased">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
