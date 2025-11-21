@@ -121,7 +121,7 @@ const HomePage: React.FC = () => {
                 </p>
                 <div className="bg-blue-50 border border-blue-200 text-blue-900 rounded-lg p-4 my-4 font-semibold text-center">
                     <p>
-                        A liberação de cada sorteio requer o pagamento de R$ 20,00, valor destinado à manutenção e melhoria da plataforma.
+                        A liberação de cada sorteio requer o pagamento único de apenas R$ 20,00, valor destinado à manutenção e melhoria da plataforma.
                     </p>
                 </div>
                 <p>
